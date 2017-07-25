@@ -14,7 +14,7 @@ def get_cos(r):
 
 
 def get_pi():
-    math.pi
+    return math.pi
  
     
 def convert_degree_radian(d):
@@ -70,19 +70,11 @@ if __name__ == "__main__":
                         format='%(asctime)s: %(name)-4s: %(levelname)-4s: %(message)s',
                         datefmt='%Y-%m-%d %Hh %Mm %Ss')
     
-    com_parser = argparse.ArgumentParser(description="process of finding length of segment (l)")
-    com_parser.add_argument('-r','--radius', type=str, help = "getting length of segment w.r.t given radius.", default=5.0)
-    args = com_parser.parse_args()
-    
-    
-    if args.radius is not None and args.radius != '' :
-        try:
-            l = round(get_length_of_segment(float(args.radius)),2)
-            print(l)
-            print("length of segment of coasters: "+str(l)+ " whose radius "+ str(args.radius))
-        except Exception as e:
-            print(e)
-    else:
-        pass
-    
-    
+    logging.info("start the process")
+    try:
+        r = input("Please enter the value of redius: ")    
+        l = round(get_length_of_segment(float(r)),2)
+        print(l)
+        print("length of segment of coasters: "+str(l)+ " whose radius "+ str(r))
+    except Exception as e:
+            print("please enter the value input")
