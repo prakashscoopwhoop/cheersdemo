@@ -71,10 +71,11 @@ if __name__ == "__main__":
                         datefmt='%Y-%m-%d %Hh %Mm %Ss')
     
     logging.info("start the process")
-    try:
-        r = input("Please enter the value of redius: ")    
-        l = round(get_length_of_segment(float(r)),2)
-        print(l)
-        print("length of segment of coasters: "+str(l)+ " whose radius "+ str(r))
-    except Exception as e:
-            print("please enter the value input")
+    while True:
+        try:
+            r = input("Please enter the value of redius: ")    
+            l = round(get_length_of_segment(float(r)),2)
+            print("length of segment of coasters: "+str(l)+ " whose radius "+ str(r))
+        except Exception as e:
+                print("please enter the valid input")
+                
