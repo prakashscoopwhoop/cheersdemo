@@ -1,6 +1,8 @@
 
 import math
 import logging
+import pdb
+import sys
 
 x = 2.31
 
@@ -56,6 +58,8 @@ class Incarnation2:
         R radius of coasters
         '''
         try:
+            if '--debugger' in sys.argv:
+                pdb.set_trace()
             alpha = self.find_alpha()
             cos_value = self._math_method.get_cos(alpha/2)
             l = 2*R * (1 - cos_value)
@@ -72,7 +76,7 @@ if __name__ == "__main__":
                         level=logging.INFO,
                         format='%(asctime)s: %(name)-4s: %(levelname)-4s: %(message)s',
                         datefmt='%Y-%m-%d %Hh %Mm %Ss')
-    
+
     logging.info("start the process")
     
     while True:
