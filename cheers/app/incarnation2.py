@@ -26,7 +26,7 @@ class MathMethod:
         return math.degrees(r)
 
 
-class Incarnation3:
+class Incarnation2:
     _math_method = MathMethod()
     
     def find_alpha(self):
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     while True:
         try:
             r = input("Please enter the value of radius: ") 
-            l = round(Incarnation3().get_length_of_segment(float(r)),2)
+            l = round(Incarnation2().get_length_of_segment(float(r)),2)
             print("length of segment of coasters: "+str(l)+ " whose radius "+ str(r))
         except Exception as e:
             print("please enter the valid input")
