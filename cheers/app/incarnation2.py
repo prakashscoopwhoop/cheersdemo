@@ -3,6 +3,7 @@ import math
 import logging
 import pdb
 import sys
+from decimal import Decimal, getcontext
 
 x = 2.31
 
@@ -16,9 +17,19 @@ class MathMethod:
         return math.cos(r)
     
     
-    def get_pi(self, r):
-        return math.pi
-     
+    def get_pi(self):
+        '''
+        Bailey–Borwein–Plouffe formula
+        '''
+        getcontext().prec=100
+        pi = sum(1/Decimal(16)**k * 
+                   (Decimal(4)/(8*k+1) - 
+                    Decimal(2)/(8*k+4) - 
+                    Decimal(1)/(8*k+5) -
+                    Decimal(1)/(8*k+6)) for k in range(100))
+        
+        return round(pi,4)
+    
         
     def convert_degree_radian(self, d):
         return math.radians(d)
@@ -78,7 +89,7 @@ if __name__ == "__main__":
                         datefmt='%Y-%m-%d %Hh %Mm %Ss')
 
     logging.info("start the process")
-    
+
     while True:
         try:
             r = input("Please enter the value of radius: ") 
